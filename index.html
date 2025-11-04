@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HabitLens.AI - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+      <h1><a href="index.html">HabitLens.AI</a></h1>
+      <nav>
+        <ul>
+          <a href="index.html"><li class="tab-btn active" data-tab="dashboard">📊 Dashboard</li></a>
+          <a href="leaderboard.html"><li class="tab-btn" data-tab="leaderboard">🏆 Leaderboard</li></a>
+          <a href="community.html"><li class="tab-btn" data-tab="community">💬 Community</li></a>
+        </ul>
+      </nav>
+      <!-- ✅ Logout button -->
+      <button id="logout-btn" class="logout-btn">Logout</button>
+  </div>
+</header>
+
+  <!-- AI Chatbot Section -->
+  <div class="chatbot-container">
+    <div class="chatbot-wrapper">
+      <div class="chatbot-header">
+        <h3>🤖 HabitLens.AI</h3>
+        <button class="chatbot-toggle" id="chatbot-toggle">−</button>
+      </div>
+      <div class="chatbot-body" id="chatbot-body">
+        <div class="chatbot-messages" id="chatbot-messages">
+          <div class="message bot-message">
+            <div class="message-content">
+              Hello! I'm your AI assistant. How can I help you today?
+            </div>
+          </div>
+        </div>
+        <div class="chatbot-input-container">
+          <input 
+            type="text" 
+            id="chatbot-input" 
+            class="chatbot-input" 
+            placeholder="Type your message here..."
+            autocomplete="off"
+          >
+          <button id="chatbot-send" class="chatbot-send-btn">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <section id="dashboard" class="tab-content active">
+      
+      <div class="stats-card">
+        <div class="stat-item">
+          <span class="stat-label">Level</span>
+          <span class="stat-value" id="user-level">1</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">XP</span>
+          <span class="stat-value" id="user-xp">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Total Streak</span>
+          <span class="stat-value" id="total-streak">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Combo</span>
+          <span class="stat-value combo-indicator" id="combo-multiplier">x1</span>
+        </div>
+      </div>
+
+      <div class="xp-bar-container">
+        <div class="xp-bar" id="xp-bar"></div>
+        <span class="xp-text" id="xp-text">0 / 100 XP to Level 2</span>
+      </div>
+
+      <!-- AI Schedule Section -->
+      <div class="schedule-section" id="schedule-section" style="display: none;">
+        <div class="section-header">
+          <h2>📅 Today's Schedule</h2>
+          <button class="btn-secondary" id="hide-schedule-btn">Hide</button>
+        </div>
+        <div id="schedule-container" class="schedule-container">
+          <!-- Schedule will be displayed here -->
+        </div>
+      </div>
+
+      <div class="section-header">
+        <h2>Your Habits</h2>
+        <button class="btn-primary" id="add-habit-btn">+ Add Habit</button>
+      </div>
+
+      <div id="habits-container" class="habits-grid">
+        <p class="subtitle text-center">Loading your habits...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="add-habit-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    
+    <div class="modal-content">
+      <h3>Create New Habit</h3>
+      
+      <label for="habit-name">Habit Name</label>
+      <input type="text" id="habit-name" placeholder="e.g., Morning Exercise 🏃">
+      
+      <label for="habit-icon">Choose Icon</label>
+      <div class="icon-picker">
+        <span class="icon-option selected" data-icon="🌱">🌱</span>
+        <span class="icon-option" data-icon="💪">💪</span>
+        <span class="icon-option" data-icon="📚">📚</span>
+        <span class="icon-option" data-icon="🧘">🧘</span>
+        <span class="icon-option" data-icon="💧">💧</span>
+        <span class="icon-option" data-icon="🎨">🎨</span>
+        <span class="icon-option" data-icon="🎵">🎵</span>
+        <span class="icon-option" data-icon="✍">✍</span>
+      </div>
+      <input type="hidden" id="selected-icon" value="🌱">
+      
+      <div class="modal-actions">
+        <button class="btn-secondary" id="cancel-habit-btn">Cancel</button>
+        <button class="btn-primary" id="save-habit-btn">Create Habit</button>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Your Firebase logic -->
+<script type="module" src="firebase.js"></script>
+
+<!-- AI Scheduler Module -->
+<script type="module" src="ai-scheduler.js"></script>
+
+<!-- Chatbot JavaScript -->
+<script type="module" src="chatbot.js"></script>
+
+</body>
+</html>
