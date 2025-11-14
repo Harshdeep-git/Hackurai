@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard - HabitLens</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+      <h1><a href="index.html">HabitLens.AI</a></h1>
+      <nav>
+        <ul>
+          <a href="index.html"><li class="tab-btn" data-tab="dashboard">📊 Dashboard</li></a>
+          <a href="leaderboard.html"><li class="tab-btn active" data-tab="leaderboard">🏆 Leaderboard</li></a>
+          <a href="community.html"><li class="tab-btn" data-tab="community">💬 Community</li></a>
+        </ul>
+      </nav>
+      <button id="logout-btn" class="logout-btn">Logout</button>
+  </div>
+</header>
+
+  <main class="container">
+    <section id="leaderboard" class="tab-content active">
+      <h2>🏆 Top Habit Champions</h2>
+      <p class="subtitle">Check out the most consistent achievers this week!</p>
+      
+      <div class="leaderboard-container">
+        <ul id="leaderboard-list">
+          <p class="subtitle text-center">Loading leaderboard...</p>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- REMOVE THE OLD FIREBASE V8 SCRIPTS - ONLY USE MODULE VERSION -->
+  <!-- Your Firebase logic (Module SDK v10) -->
+  <script type="module" src="firebase.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
